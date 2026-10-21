@@ -1,8 +1,14 @@
 // Pap's Supply Co Publisher — OAuth callback.
 // Exchanges the authorization code for an access token (HTTP Basic auth
 // with App ID + App secret, per Pinterest docs), looks up the account,
-// and hands off to the connected page. The token lives only in a
-// short-lived httpOnly cookie — never stored or logged.
+// and hands off to the connected page. The app secret comes from the
+// one-time httpOnly cookie set by /api/setup (or env if configured);
+// the access token lives only in a short-lived httpOnly cookie.
+// Nothing is stored in a database or logged.
+const APP_ID = process.env.PINTEREST_APP_ID || '1622191';
+const REDIRECT_URI = process.env.PINTEREST_REDIRECT_URI ||
+  'https://paps-supply-co-demo.vercel.app/api/callback';
+
 function parseCookies(req) {
   const out = {};
   const h = req.headers.cookie || '';
@@ -28,9 +34,14 @@ module.exports = async (req, res) => {
     return res.end('<h1>OAuth error</h1><p>Missing or mismatched ' +
       'authorization response.</p>');
   }
-  const basic = Buffer.from(
-    `${process.env.PINTEREST_APP_ID}:${process.env.PINTEREST_APP_SECRET}`
-  ).toString('base64');
+  const appSecret = cookies.pin_secret || process.env.PINTEREST_APP_SECRET;
+  if (!appSecret) {
+    res.writeHead(400, { 'Content-Type': 'text/html; charset=utf-8' });
+    return res.end('<h1>Setup needed</h1><p>The app secret has not ' +
+      'been provided in this browser session. Go back to the home ' +
+      'page and complete the one-time setup first.</p>');
+  }
+  const basic = Buffer.from(`${APP_ID}:${appSecret}`).toString('base64');
   const r = await fetch('https://api.pinterest.com/v5/oauth/token', {
     method: 'POST',
     headers: {
@@ -40,7 +51,7 @@ module.exports = async (req, res) => {
     body: new URLSearchParams({
       grant_type: 'authorization_code',
       code,
-      redirect_uri: process.env.PINTEREST_REDIRECT_URI,
+      redirect_uri: REDIRECT_URI,
     }),
   });
   const text = await r.text();
@@ -60,6 +71,8 @@ module.exports = async (req, res) => {
       'Max-Age=3600; SameSite=Lax; Secure',
     `pin_user=${encodeURIComponent(username)}; Path=/; Max-Age=3600; ` +
       'SameSite=Lax; Secure',
+    // Clear the secret cookie — it has done its job.
+    'pin_secret=; HttpOnly; Path=/api; Max-Age=0; SameSite=Lax; Secure',
   ]);
   res.writeHead(302, { Location: '/connected.html' });
   res.end();
