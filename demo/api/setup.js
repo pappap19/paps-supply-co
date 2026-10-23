@@ -18,8 +18,8 @@ module.exports = (req, res) => {
     }
     res.setHeader('Set-Cookie', [
       `pin_secret=${encodeURIComponent(secret)}; HttpOnly; Path=/api; ` +
-        'Max-Age=900; SameSite=Lax; Secure',
-      'pin_ready=1; Path=/; Max-Age=900; SameSite=Lax; Secure',
+        'Max-Age=3600; SameSite=None; Secure',
+      'pin_ready=1; Path=/; Max-Age=3600; SameSite=Lax; Secure',
     ]);
     res.writeHead(302, { Location: '/' });
     res.end();
