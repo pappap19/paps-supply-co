@@ -48,7 +48,22 @@ module.exports = async (req, res) => {
   // sandbox-minted OAuth token (see api/callback.js). Production pin
   // creation is rejected for Trial apps (HTTP 403 code 29).
   const SAND = 'https://api-sandbox.pinterest.com/v5';
+  const PROD = 'https://api.pinterest.com/v5';
   const steps = [];
+  // DIAGNOSTICS (temporary): identify which environment this token
+  // belongs to and whether it works anywhere besides boards.
+  steps.push(['token fingerprint', 0,
+    `length=${token.length} prefix=${token.slice(0, 4)}…`]);
+  for (const [base, label] of [[SAND, 'sandbox'], [PROD, 'production']]) {
+    try {
+      const r = await fetch(`${base}/user_account`, { headers });
+      const t = await r.text();
+      steps.push([`GET /v5/user_account (${label})`, r.status,
+        t.slice(0, 400)]);
+    } catch (e) {
+      steps.push([`GET /v5/user_account (${label})`, 0, String(e)]);
+    }
+  }
   async function getBoards(base, label) {
     const r = await fetch(`${base}/boards?page_size=100`, { headers });
     const t = await r.text();
