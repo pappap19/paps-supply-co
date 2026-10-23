@@ -71,8 +71,11 @@ module.exports = async (req, res) => {
       'Max-Age=3600; SameSite=Lax; Secure',
     `pin_user=${encodeURIComponent(username)}; Path=/; Max-Age=3600; ` +
       'SameSite=Lax; Secure',
-    // Clear the secret cookie — it has done its job.
-    'pin_secret=; HttpOnly; Path=/api; Max-Age=0; SameSite=Lax; Secure',
+    // Clear the secret cookie — it has done its job. Also clear the
+    // "ready" flag so the home page honestly shows the setup form again
+    // on the next run instead of a stale "saved" banner.
+    'pin_secret=; HttpOnly; Path=/api; Max-Age=0; SameSite=None; Secure',
+    'pin_ready=; Path=/; Max-Age=0; SameSite=Lax; Secure',
   ]);
   res.writeHead(302, { Location: '/connected.html' });
   res.end();
