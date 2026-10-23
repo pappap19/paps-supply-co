@@ -66,7 +66,7 @@ module.exports = async (req, res) => {
         title: DEMO.title,
         description: DEMO.desc,
         link: DEMO.link,
-        media_source: { source_type: 'image_url', image_url: DEMO.image },
+        media_source: { source_type: 'image_url', url: DEMO.image },
       }),
     });
     const pinText = await pinRes.text();
