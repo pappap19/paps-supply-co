@@ -169,6 +169,27 @@
     renderCatalog();
   });
 
+  // Site text comes from data/config.js (generated from site-config.json,
+  // the one editable source). The HTML copy stays as the fallback.
+  if (typeof SITE_CONFIG !== "undefined") {
+    var heroTitle = document.querySelector(".hero-title");
+    if (heroTitle && SITE_CONFIG.heroTitle) {
+      heroTitle.textContent = SITE_CONFIG.heroTitle;
+    }
+    var heroSub = document.querySelector(".hero-sub");
+    if (heroSub && SITE_CONFIG.heroSub) {
+      heroSub.textContent = SITE_CONFIG.heroSub;
+    }
+    var aboutHeading = document.querySelector(".about .section-title");
+    if (aboutHeading && SITE_CONFIG.aboutHeading) {
+      aboutHeading.textContent = SITE_CONFIG.aboutHeading;
+    }
+    var aboutText = document.querySelector(".about-text");
+    if (aboutText && SITE_CONFIG.aboutText) {
+      aboutText.textContent = SITE_CONFIG.aboutText;
+    }
+  }
+
   renderFeatured();
   renderCatalog();
 })();
