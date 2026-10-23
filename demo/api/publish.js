@@ -10,7 +10,7 @@ pre { background: #14141a; color: #d8f3dc; padding: 16px; border-radius: 8px;
 code { background: #eee; padding: 1px 5px; border-radius: 4px; }`;
 
 const DEMO = {
-  image: 'https://pappap19.github.io/paps-supply-co/demo-pin.jpg',
+  image: 'https://papssupplyco.com/demo-pin.jpg',
   link: 'https://www.redbubble.com/shop/ap/184919145',
   title: 'Goth Stocking Sticker — Black Velvet Skull Christmas Decal',
   desc: "His stocking comes pre-stuffed with skulls — a black velvet " +
