@@ -44,9 +44,9 @@ module.exports = async (req, res) => {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json',
   };
-  // Trial access: Pinterest requires writes to go to the API Sandbox
-  // host (production returns HTTP 403 code 29 for pin creation).
-  const PROD = 'https://api.pinterest.com/v5';
+  // Trial access: everything runs on the API Sandbox host with a
+  // sandbox-minted OAuth token (see api/callback.js). Production pin
+  // creation is rejected for Trial apps (HTTP 403 code 29).
   const SAND = 'https://api-sandbox.pinterest.com/v5';
   const steps = [];
   async function getBoards(base, label) {
@@ -82,10 +82,6 @@ module.exports = async (req, res) => {
       } catch { /* fall through */ }
     }
   }
-  if (!boardId) {
-    // Last resort for display purposes: show the production boards too.
-    await getBoards(PROD, 'production');
-  }
   let result = '';
   if (boardId) {
     const pinRes = await fetch(`${SAND}/pins`, {
@@ -120,10 +116,11 @@ module.exports = async (req, res) => {
     `<title>Publish result — Pap's Supply Co Publisher</title>` +
     `<style>${CSS}</style></head><body>` +
     `<h1>Live API result</h1>${result}<pre>${esc(log)}</pre>` +
-    `<p class="note">This app is on Trial access, so Pinterest ` +
-    `requires pin creation through its API Sandbox host ` +
-    `(api-sandbox.pinterest.com); reads and OAuth run on the ` +
-    `production API. Access token is held only in a short-lived ` +
-    `httpOnly session cookie and is never stored or logged.</p>` +
+    `<p class="note">This app is on Trial access, so the OAuth token ` +
+    `exchange and all API calls run on Pinterest's API Sandbox ` +
+    `host (api-sandbox.pinterest.com), exactly as Pinterest ` +
+    `directs Trial apps. Access token is held only in a ` +
+    `short-lived httpOnly session cookie and is never stored ` +
+    `or logged.</p>` +
     `</body></html>`);
 };
