@@ -1,0 +1,527 @@
+/* Pap's Supply Co. — candlelit gothic desk. */
+
+:root {
+  --bg: #171310;
+  --panel: #221b16;
+  --text: #efe3cc;
+  --muted: #b8a88f;
+  --gold: #c9a35c;
+  --gold-dim: rgba(201, 163, 92, 0.35);
+  --gold-glow: rgba(201, 163, 92, 0.22);
+  --font-display: "Cinzel", serif;
+  --font-body: "Inter", sans-serif;
+  --header-h: 3.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Subtle candlelight vignette, warm and uncluttered. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(201, 163, 92, 0.07), transparent 70%),
+    radial-gradient(ellipse 120% 80% at 50% 120%, rgba(0, 0, 0, 0.35), transparent 70%);
+  z-index: 0;
+}
+
+/* Subtle paper-grain texture over everything, pure CSS. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Reveal motion ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-height: var(--header-h);
+  padding: 0.5rem clamp(1rem, 4vw, 2.5rem);
+  background: rgba(23, 19, 16, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(201, 163, 92, 0.25);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wordmark:hover {
+  color: var(--gold);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 1.5rem);
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.site-nav a:hover {
+  color: var(--gold);
+}
+
+.printify-link {
+  color: var(--gold) !important;
+  border: 1px solid var(--gold-dim);
+  padding: 0.3rem 0.75rem;
+  border-radius: 2px;
+}
+
+.printify-link:hover {
+  border-color: var(--gold);
+}
+
+/* ---------- Sections ---------- */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: var(--text);
+}
+
+.gold-rule {
+  width: 90px;
+  height: 1px;
+  margin: 0.9rem auto 2rem;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  text-align: center;
+  padding: clamp(5rem, 14vh, 8.5rem) 0 clamp(4rem, 12vh, 7rem);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6.5vw, 4rem);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.hero-sub {
+  max-width: 34rem;
+  margin: 0 auto 2.25rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.7rem 1.6rem;
+  border-radius: 2px;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #171310;
+}
+
+.btn-gold:hover {
+  background: transparent;
+  color: var(--gold);
+  box-shadow: 0 0 18px var(--gold-glow);
+}
+
+/* ---------- Featured strip ---------- */
+
+.featured {
+  padding: 2.5rem 0 3rem;
+}
+
+.featured-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 280px);
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.25rem 1rem;
+  scroll-snap-type: x proximity;
+}
+
+.featured-strip .product-card {
+  scroll-snap-align: start;
+}
+
+.featured-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.featured-strip::-webkit-scrollbar-track {
+  background: var(--panel);
+}
+
+.featured-strip::-webkit-scrollbar-thumb {
+  background: var(--gold-dim);
+  border-radius: 3px;
+}
+
+/* ---------- Catalog controls ---------- */
+
+.catalog {
+  padding: 2.5rem 0 4rem;
+}
+
+.catalog-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid rgba(184, 168, 143, 0.3);
+  border-radius: 2px;
+  padding: 0.45rem 1rem;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.tab:hover {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.tab.active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 163, 92, 0.08);
+}
+
+.search-input {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid rgba(184, 168, 143, 0.3);
+  border-radius: 2px;
+  padding: 0.5rem 0.9rem;
+  min-width: 220px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+/* ---------- Product grid ---------- */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Product card ---------- */
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid rgba(184, 168, 143, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 16px var(--gold-glow);
+}
+
+.card-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(160deg, #261f19 0%, #1a1512 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(201, 163, 92, 0.15);
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-placeholder {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201, 163, 92, 0.08), transparent 75%),
+    linear-gradient(160deg, #261f19 0%, #1a1512 100%);
+}
+
+.placeholder-initial {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem 0.4rem;
+  flex: 1;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.card-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.card-price {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}
+
+.card-size {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.product-card .btn {
+  margin: 1rem 1.1rem 1.1rem;
+}
+
+/* ---------- Empty state ---------- */
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  padding: 3rem 0;
+}
+
+/* ---------- About ---------- */
+
+.about {
+  padding: 3rem 0 4.5rem;
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.about-text {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid rgba(201, 163, 92, 0.25);
+  margin-top: 2rem;
+  padding: 1.75rem clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.footer-link {
+  color: var(--gold);
+  font-size: 0.85rem;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* ---------- Responsive header ---------- */
+
+@media (max-width: 640px) {
+  .site-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-nav {
+    justify-content: center;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .product-card,
+  .btn,
+  .tab,
+  .search-input {
+    transition: none;
+  }
+
+  .product-card:hover {
+    transform: none;
+  }
+}

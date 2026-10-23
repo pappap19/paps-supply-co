@@ -1,29 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pap's Supply Co.</title>
-<style>
-body { font-family: Georgia, serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #222; line-height: 1.6; }
-h1 { font-size: 2em; border-bottom: 2px solid #333; padding-bottom: 10px; }
-a { color: #555; }
-ul { line-height: 2; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pap's Supply Co. — Dark Goods for Daily Rituals</title>
+  <meta name="description" content="Gothic die-cut vinyl stickers, mugs, candles, and hoodies. Printed to order and shipped from the US.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Pap's Supply Co.</h1>
-<p>Spooky-cute stickers and decals — gothic coffee, creepmas, and dark-holiday designs from Portland, Oregon.</p>
-<h2>Shop</h2>
-<ul>
-<li><a href="https://paps-supply-co.printify.me/">Printify Pop-Up Store</a></li>
-<li><a href="https://www.redbubble.com/people/paps-supply-co/shop">Redbubble Shop</a></li>
-<li><a href="https://www.instagram.com/paps.supply.co/">Instagram — @paps.supply.co</a></li>
-<li><a href="https://www.pinterest.com/papssupplyco/">Pinterest — @papssupplyco</a></li>
-</ul>
-<h2>Legal</h2>
-<ul>
-<li><a href="privacy-policy.html">Privacy Policy</a> — for our storefronts and our Pinterest app, "Pap's Supply Co Publisher".</li>
-</ul>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top">PAP'S SUPPLY CO.</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#catalog" data-filter="stickers">Stickers</a>
+      <a href="#catalog" data-filter="drinkware">Drinkware</a>
+      <a href="#catalog" data-filter="candles">Candles</a>
+      <a href="#catalog" data-filter="apparel">Apparel</a>
+      <a href="#about">About</a>
+      <a class="printify-link" href="https://paps-supply-co.printify.me" target="_blank" rel="noopener">Shop on Printify</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero reveal" id="hero">
+      <h1 class="hero-title">Dark Goods for Daily Rituals</h1>
+      <p class="hero-sub">Haunted coffee, dark Christmas, cryptids, and cute spooks — on stickers, shirts, mugs, and more.</p>
+      <a class="btn btn-gold" href="#catalog">Browse the goods</a>
+    </section>
+
+    <section class="featured reveal" id="featured">
+      <h2 class="section-title">Featured</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <div class="featured-strip" id="featured-strip"></div>
+    </section>
+
+    <section class="catalog reveal" id="catalog">
+      <h2 class="section-title">The Catalog</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <div class="catalog-controls">
+        <div class="filter-tabs" role="group" aria-label="Filter by category">
+          <button class="tab active" data-filter="all" aria-pressed="true">All</button>
+          <button class="tab" data-filter="stickers" aria-pressed="false">Stickers</button>
+          <button class="tab" data-filter="drinkware" aria-pressed="false">Drinkware</button>
+          <button class="tab" data-filter="candles" aria-pressed="false">Candles</button>
+          <button class="tab" data-filter="apparel" aria-pressed="false">Apparel</button>
+        </div>
+        <input type="search" id="search" class="search-input" placeholder="Search the goods…" aria-label="Search products by title">
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <p class="empty-state" id="empty-state" hidden>No goods match that search. Try another spell.</p>
+    </section>
+
+    <section class="about reveal" id="about">
+      <h2 class="section-title">Small shop. Dark goods.</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <p class="about-text">Pap's Supply Co. is a one-person shop making die-cut vinyl stickers — plus mugs, zodiac candles, and a few hoodies — for the haunted-coffee, dark-Christmas, cute-spook crowd. Everything's printed to order and shipped from the US. Pick your poison; stick it somewhere it haunts daily.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-copyright">© 2026 Pap's Supply Co.</p>
+    <a class="footer-link" href="https://www.instagram.com/paps.supply.co/" target="_blank" rel="noopener">Instagram</a>
+    <a class="footer-link" href="#top">Back to top</a>
+    <p class="footer-note">Printed &amp; shipped by Printify</p>
+  </footer>
+
+  <script src="data/products.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

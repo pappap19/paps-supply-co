@@ -1,0 +1,1295 @@
+// Pap's Supply Co. — product data (full catalog, harvested from the Printify storefront).
+// Adding a product = adding one object to this array. Nothing else required.
+
+const PRODUCTS = [
+  {
+    slug: "midnight-nutcracker-sticker-dark-gothic-christmas-decal",
+    title: "Midnight Nutcracker Sticker",
+    note: "Dark Gothic Christmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33419726",
+    featured: true,
+    image: "https://images-api.printify.com/mockup/6ada38c073b8f5726400fcc3/72006/13462/midnight-nutcracker-sticker-dark-gothic-christmas-decal.jpg?camera_label=front&revision=1792686374279"
+  },
+  {
+    slug: "gingerdead-cottage-sticker-haunted-gingerbread-house-decal",
+    title: "Gingerdead Cottage Sticker",
+    note: "Haunted Gingerbread House Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33419650",
+    featured: true,
+    image: "https://images-api.printify.com/mockup/6ada3686a062e254c20a81c1/72006/13462/gingerdead-cottage-sticker-haunted-gingerbread-house-decal.jpg?camera_label=front&revision=1792686253976"
+  },
+  {
+    slug: "goth-stocking-sticker-black-velvet-skull-christmas-decal",
+    title: "Goth Stocking Sticker",
+    note: "Black Velvet Skull Christmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33384423",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad8e7847f85ecd3f8021e98/72006/13462/goth-stocking-sticker-black-velvet-skull-christmas-decal.jpg?camera_label=front&revision=1792600411262"
+  },
+  {
+    slug: "krampusnacht-sticker-dark-holiday-krampus-decal",
+    title: "Krampusnacht Sticker",
+    note: "Dark Holiday Krampus Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33384071",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad8e569be91db606c014e99/72006/13462/krampusnacht-sticker-dark-holiday-krampus-decal.jpg?camera_label=front&revision=1792599615922"
+  },
+  {
+    slug: "dark-roast-darling-sticker-goth-girl-coffee-decal",
+    title: "Dark Roast Darling Sticker",
+    note: "Goth Girl Coffee Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33347278",
+    featured: true,
+    image: "https://images-api.printify.com/mockup/6ad7b6c8d4fc3e879e0d69e1/72006/13462/dark-roast-darling-sticker-goth-girl-coffee-decal.jpg?camera_label=front&revision=1792522671419"
+  },
+  {
+    slug: "brew-of-the-dead-sticker-kawaii-ghost-coffee-decal",
+    title: "Brew of the Dead Sticker",
+    note: "Kawaii Ghost Coffee Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33304640",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad663d07d6e00db450790cb/72006/13462/brew-of-the-dead-sticker-kawaii-ghost-coffee-decal.jpg?camera_label=front&revision=1792435239417"
+  },
+  {
+    slug: "happy-sporemas-sticker-kawaii-mushroom-bauble-creepmas-decal",
+    title: "Happy Sporemas Sticker",
+    note: "Kawaii Mushroom Bauble Creepmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33304564",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad662ef3c2fe90c6102e51f/72006/13462/happy-sporemas-sticker-kawaii-mushroom-bauble-creepmas-decal.jpg?camera_label=front&revision=1792435138177"
+  },
+  {
+    slug: "well-read-and-dead-sticker-kawaii-ghost-book-club-decal",
+    title: "Well Read and Dead Sticker",
+    note: "Kawaii Ghost Book Club Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33260707",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad4fed2c5bf429b0a0831e0/72006/13462/well-read-and-dead-sticker-kawaii-ghost-book-club-decal.jpg?camera_label=front&revision=1792344030925"
+  },
+  {
+    slug: "ghostly-ornament-sticker-kawaii-ghost-bauble-creepmas-decal",
+    title: "Ghostly Ornament Sticker",
+    note: "Kawaii Ghost Bauble Creepmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33260566",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad4fd84c5bf429b0a0830fd/72006/13462/ghostly-ornament-sticker-kawaii-ghost-bauble-creepmas-decal.jpg?camera_label=front&revision=1792343717604"
+  },
+  {
+    slug: "cryptmas-eve-sticker-kawaii-cryptid-santa-creepmas-decal",
+    title: "Cryptmas Eve Sticker",
+    note: "Kawaii Cryptid Santa Creepmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33258061",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad3c6cbe402d68e9b0518de/72006/13462/cryptmas-eve-sticker-kawaii-cryptid-santa-creepmas-decal.jpg?camera_label=front&revision=1792339101270"
+  },
+  {
+    slug: "pumpkin-spice-seance-sticker-kawaii-ghost-coffee-halloween-decal",
+    title: "Pumpkin Spice Seance Sticker",
+    note: "Kawaii Ghost Coffee Halloween Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33258050",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad3c8afdb644fbb990a9627/72006/13462/pumpkin-spice-seance-sticker-kawaii-ghost-coffee-halloween-decal.jpg?camera_label=front&revision=1792339062262"
+  },
+  {
+    slug: "midnight-mushrooms-sticker-kawaii-glowing-fungi-ghost-decal",
+    title: "Midnight Mushrooms Sticker",
+    note: "Kawaii Glowing Fungi Ghost Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33226367",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad3c54cdd9ae60ca105db20/72006/13462/midnight-mushrooms-sticker-kawaii-glowing-fungi-ghost-decal.jpg?camera_label=front&revision=1792263645557"
+  },
+  {
+    slug: "creepmas-tree-sticker-black-christmas-tree-halloweenmas-decal",
+    title: "Creepmas Tree Sticker",
+    note: "Black Christmas Tree Halloweenmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33225983",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad3c26a236d14a8590182cf/72006/13462/creepmas-tree-sticker-black-christmas-tree-halloweenmas-decal.jpg?camera_label=front&revision=1792263259878"
+  },
+  {
+    slug: "death-by-candy-sticker-kawaii-skeleton-halloween-decal",
+    title: "Death by Candy Sticker",
+    note: "Kawaii Skeleton Halloween Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33144991",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad10e77210a7ce1c702c6b5/72006/13462/death-by-candy-sticker-kawaii-skeleton-halloween-decal.jpg?camera_label=front&revision=1792085675265"
+  },
+  {
+    slug: "haunted-cocoa-sticker-kawaii-ghost-cocoa-creepmas-decal",
+    title: "Haunted Cocoa Sticker",
+    note: "Kawaii Ghost Cocoa Creepmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33144936",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ad10dbf5308e53979004298/72006/13462/haunted-cocoa-sticker-kawaii-ghost-cocoa-creepmas-decal.jpg?camera_label=front&revision=1792085540764"
+  },
+  {
+    slug: "merry-creepmas-sticker-cute-black-cat-bat-wings-christmas-decal",
+    title: "Merry Creepmas Sticker",
+    note: "Cute Black Cat Bat Wings Christmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33102017",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acfa70372013e99f7024aa8/72006/13462/merry-creepmas-sticker-cute-black-cat-bat-wings-christmas-decal.jpg?camera_label=front&revision=1791993718064"
+  },
+  {
+    slug: "merry-and-amp-fright-sticker-cute-ghost-santa-hat-creepmas-decal",
+    title: "Merry & Fright Sticker",
+    note: "Cute Ghost Santa Hat Creepmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33101917",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acfa629375af7e8ad07e21a/72006/13462/merry-fright-sticker-cute-ghost-santa-hat-creepmas-decal.jpg?camera_label=front&revision=1791993487311"
+  },
+  {
+    slug: "midnight-yuletide-sticker-gothic-floral-luna-moth-christmas-decal",
+    title: "Midnight Yuletide Sticker",
+    note: "Gothic Floral Luna Moth Christmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33067586",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ace7334364adaef930e5346/72006/13462/midnight-yuletide-sticker-gothic-floral-luna-moth-christmas-decal.jpg?camera_label=front&revision=1791914947723"
+  },
+  {
+    slug: "haunted-holidays-creepmas-sticker-planchette-ornament-gothic-christmas-decal",
+    title: "Haunted Holidays Creepmas Sticker",
+    note: "Planchette Ornament Gothic Christmas Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33067410",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ace7232ce7c87c29804c609/72006/13462/haunted-holidays-creepmas-sticker-planchette-ornament-gothic-christmas-decal.jpg?camera_label=front&revision=1791914765524"
+  },
+  {
+    slug: "gothic-christmas-sticker-one-more-chapter-bookish-holiday-decal",
+    title: "Gothic Christmas Sticker",
+    note: "One More Chapter Bookish Holiday Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33029664",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acd25cc418119f54500ac12/72006/13462/gothic-christmas-sticker-one-more-chapter-bookish-holiday-decal.jpg?camera_label=front&revision=1791829584275"
+  },
+  {
+    slug: "merry-hexmas-witch-sticker-gothic-christmas-broom-flight-decal",
+    title: "Merry Hexmas Witch Sticker",
+    note: "Gothic Christmas Broom Flight Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/33029606",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acd252cf891570609004c8e/72006/13462/merry-hexmas-witch-sticker-gothic-christmas-broom-flight-decal.jpg?camera_label=front&revision=1791829517450"
+  },
+  {
+    slug: "single-rose-hoodie-dark-botanical-hooded-sweatshirt",
+    title: "Single Rose Hoodie",
+    note: "Dark Botanical Hooded Sweatshirt",
+    category: "apparel",
+    price: 40.99,
+    buyUrl: "https://paps-supply-co.printify.me/product/32990431",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acbce23ae96b8f9780333aa/32920/98424/single-rose-hoodie-dark-botanical-hooded-sweatshirt.jpg?camera_label=front&revision=1791745851837"
+  },
+  {
+    slug: "deaths-head-moth-hoodie-gothic-line-art-hooded-sweatshirt",
+    title: "Death&#x27;s-Head Moth Hoodie",
+    note: "Gothic Line Art Hooded Sweatshirt",
+    category: "apparel",
+    price: 40.99,
+    buyUrl: "https://paps-supply-co.printify.me/product/32990419",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acbcdc1a988681cbd078092/32920/98424/deaths-head-moth-hoodie-gothic-line-art-hooded-sweatshirt.jpg?camera_label=front&revision=1791745825413"
+  },
+  {
+    slug: "little-ghost-hoodie-minimalist-spooky-hooded-sweatshirt",
+    title: "Little Ghost Hoodie",
+    note: "Minimalist Spooky Hooded Sweatshirt",
+    category: "apparel",
+    price: 40.99,
+    buyUrl: "https://paps-supply-co.printify.me/product/32990409",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acbcd9fafd0ae1b7e0eda48/32920/98424/little-ghost-hoodie-minimalist-spooky-hooded-sweatshirt.jpg?camera_label=front&revision=1791745808857"
+  },
+  {
+    slug: "deck-the-haunts-gothic-christmas-sticker-haunted-house-holiday-decal",
+    title: "Deck the Haunts Gothic Christmas Sticker",
+    note: "Haunted House Holiday Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32984800",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acbbe71d0209a6d2502b183/72006/13462/deck-the-haunts-gothic-christmas-sticker-haunted-house-holiday-decal.jpg?camera_label=front&revision=1791737515166"
+  },
+  {
+    slug: "memento-mori-gothic-christmas-sticker-skull-floral-holiday-decal",
+    title: "Memento Mori Gothic Christmas Sticker",
+    note: "Skull Floral Holiday Decal",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32984711",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6acbbd9dc84b7e15a902af99/72006/13462/memento-mori-gothic-christmas-sticker-skull-floral-holiday-decal.jpg?camera_label=front&revision=1791737329068"
+  },
+  {
+    slug: "grave-tidings-die-cut-sticker",
+    title: "Grave Tidings Die-Cut Sticker",
+    note: "",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32946342",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca74077e00a6f93b045fc4/72006/13462/grave-tidings-die-cut-sticker.jpg?camera_label=front&revision=1791673552650"
+  },
+  {
+    slug: "nevermore-noel-die-cut-sticker",
+    title: "Nevermore Noel Die-Cut Sticker",
+    note: "",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32945825",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca6f25ef5ca08581007f40/72006/13462/nevermore-noel-die-cut-sticker.jpg?camera_label=front&revision=1791673553294"
+  },
+  {
+    slug: "basic-witch-chibi-witch-broom-halloween-die-cut-sticker",
+    title: "Basic Witch",
+    note: "Chibi Witch Broom Halloween Die-Cut Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32944191",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca6256e171cd696c01133e/72006/13462/basic-witch-chibi-witch-broom-halloween-die-cut-sticker.jpg?camera_label=front&revision=1791673554261"
+  },
+  {
+    slug: "witchy-brew-cute-witch-psl-halloween-die-cut-sticker",
+    title: "Witchy Brew",
+    note: "Cute Witch PSL Halloween Die-Cut Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32944117",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca6133ef5ca0858100731e/72006/13462/witchy-brew-cute-witch-psl-halloween-die-cut-sticker.jpg?camera_label=front&revision=1791673554528"
+  },
+  {
+    slug: "pisces-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Pisces Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936687",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca03cd92c837720903defa/120602/112158/pisces-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673555661"
+  },
+  {
+    slug: "pisces-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Pisces Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936684",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca03c33e7cd221b500ea81/65217/6405/pisces-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673909345"
+  },
+  {
+    slug: "aquarius-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Aquarius Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936681",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca03b35f23f523460f48d1/120602/112158/aquarius-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673557415"
+  },
+  {
+    slug: "aquarius-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Aquarius Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936680",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca03a954cc90b5460ed978/65217/6405/aquarius-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673914452"
+  },
+  {
+    slug: "capricorn-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Capricorn Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936677",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca03993e7cd221b500ea6f/120602/112158/capricorn-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673559426"
+  },
+  {
+    slug: "capricorn-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Capricorn Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936673",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca038f5f23f523460f48bb/65217/6405/capricorn-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673921916"
+  },
+  {
+    slug: "sagittarius-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Sagittarius Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936667",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca037f54cc90b5460ed969/120602/112158/sagittarius-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673565359"
+  },
+  {
+    slug: "sagittarius-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Sagittarius Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936664",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca037592c837720903dec3/65217/6405/sagittarius-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673926154"
+  },
+  {
+    slug: "scorpio-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Scorpio Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936663",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca036520c7aaac99011911/120602/112158/scorpio-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673567009"
+  },
+  {
+    slug: "scorpio-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Scorpio Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936659",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca035b54cc90b5460ed95b/65217/6405/scorpio-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673936851"
+  },
+  {
+    slug: "libra-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Libra Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936658",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca034b5f23f523460f4890/120602/112158/libra-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673573465"
+  },
+  {
+    slug: "libra-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Libra Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936656",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca034120c7aaac990118e6/65217/6405/libra-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673942265"
+  },
+  {
+    slug: "virgo-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Virgo Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936654",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca0332814ca8844301434e/120602/112158/virgo-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673574509"
+  },
+  {
+    slug: "virgo-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Virgo Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936650",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca032820c7aaac990118d8/65217/6405/virgo-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673946625"
+  },
+  {
+    slug: "leo-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Leo Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936646",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca0318814ca88443014346/120602/112158/leo-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673574969"
+  },
+  {
+    slug: "leo-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Leo Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936644",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6aca030e20c7aaac990118ce/65217/6405/leo-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673951763"
+  },
+  {
+    slug: "cancer-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Cancer Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936212",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fdd5b96a51fd33067e94/120602/112158/cancer-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673579415"
+  },
+  {
+    slug: "cancer-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Cancer Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936209",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fdcb92c837720903d938/65217/6405/cancer-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673958764"
+  },
+  {
+    slug: "gemini-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Gemini Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936204",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fdbc92c837720903d932/120602/112158/gemini-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673581151"
+  },
+  {
+    slug: "gemini-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Gemini Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936199",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fdb122797533d10e350c/65217/6405/gemini-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791673966916"
+  },
+  {
+    slug: "taurus-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Taurus Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936196",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fda192c837720903d918/120602/112158/taurus-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673582924"
+  },
+  {
+    slug: "taurus-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Taurus Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936192",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fd97814ca88443013d9a/65217/6405/taurus-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791675664539"
+  },
+  {
+    slug: "aries-gold-constellation-candle-gothic-horoscope-9oz-black-lid",
+    title: "Aries Gold Constellation Candle",
+    note: "Gothic Horoscope (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936186",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fd8754cc90b5460ed3f5/120602/112158/aries-gold-constellation-candle-gothic-horoscope-9oz-black-lid.jpg?camera_label=front&revision=1791673591372"
+  },
+  {
+    slug: "aries-gold-constellation-mug-gothic-horoscope-black-11oz-15oz",
+    title: "Aries Gold Constellation Mug",
+    note: "Gothic Horoscope (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936184",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9fd7d169d5ded580788e8/65217/6405/aries-gold-constellation-mug-gothic-horoscope-black-11oz-15oz.jpg?camera_label=front&revision=1791675710751"
+  },
+  {
+    slug: "pisces-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Pisces Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936123",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f3aa54cc90b5460ecdbd/120602/112158/pisces-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673592220"
+  },
+  {
+    slug: "aquarius-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Aquarius Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936117",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f39a169d5ded580782a3/120602/112158/aquarius-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673595661"
+  },
+  {
+    slug: "capricorn-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Capricorn Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32936114",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f38722797533d10e2e28/120602/112158/capricorn-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673596395"
+  },
+  {
+    slug: "sagittarius-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Sagittarius Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935505",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f376dc461318f30d8705/120602/112158/sagittarius-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673599281"
+  },
+  {
+    slug: "scorpio-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Scorpio Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935504",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f36592c837720903d22b/120602/112158/scorpio-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673600252"
+  },
+  {
+    slug: "libra-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Libra Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935501",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f354b96a51fd330677f1/120602/112158/libra-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673601714"
+  },
+  {
+    slug: "virgo-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Virgo Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935494",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f342814ca884430136b9/120602/112158/virgo-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673607312"
+  },
+  {
+    slug: "leo-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Leo Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935491",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f331dc461318f30d86ad/120602/112158/leo-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673609173"
+  },
+  {
+    slug: "cancer-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Cancer Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935490",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f320dc461318f30d869d/120602/112158/cancer-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673611067"
+  },
+  {
+    slug: "gemini-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Gemini Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935489",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f30f814ca88443013686/120602/112158/gemini-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673612762"
+  },
+  {
+    slug: "taurus-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Taurus Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935487",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f2fe814ca88443013675/120602/112158/taurus-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673614640"
+  },
+  {
+    slug: "aries-candle-gothic-horoscope-soy-candle-9oz-black-lid",
+    title: "Aries Candle",
+    note: "Gothic Horoscope Soy Candle (9oz, Black Lid)",
+    category: "candles",
+    price: 13.32,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935480",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f2db22797533d10e2d56/120602/112158/aries-candle-gothic-horoscope-soy-candle-9oz-black-lid.jpg?camera_label=front&revision=1791673621642"
+  },
+  {
+    slug: "pisces-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Pisces Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935456",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f3a4814ca88443013717/65217/6405/pisces-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791675757070"
+  },
+  {
+    slug: "aquarius-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Aquarius Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935444",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f39354cc90b5460ecda2/65217/6405/aquarius-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791675802771"
+  },
+  {
+    slug: "capricorn-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Capricorn Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935431",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f381b96a51fd3306780f/65217/6405/capricorn-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791675848868"
+  },
+  {
+    slug: "sagittarius-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Sagittarius Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935430",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f37092c837720903d234/65217/6405/sagittarius-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791675894992"
+  },
+  {
+    slug: "scorpio-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Scorpio Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935428",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f35f22797533d10e2e04/65217/6405/scorpio-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791675940866"
+  },
+  {
+    slug: "libra-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Libra Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935421",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f34d22797533d10e2df6/65217/6405/libra-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791675987278"
+  },
+  {
+    slug: "virgo-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Virgo Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935414",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f33cb96a51fd330677ba/65217/6405/virgo-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791676037437"
+  },
+  {
+    slug: "leo-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Leo Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935412",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f32b169d5ded58078220/65217/6405/leo-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791676082870"
+  },
+  {
+    slug: "cancer-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Cancer Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935411",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f31a54cc90b5460ecd0d/65217/6405/cancer-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791676132148"
+  },
+  {
+    slug: "gemini-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Gemini Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935410",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f30854cc90b5460eccfe/65217/6405/gemini-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791676173738"
+  },
+  {
+    slug: "taurus-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Taurus Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935409",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f2f8b96a51fd33067777/65217/6405/taurus-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791676225179"
+  },
+  {
+    slug: "aries-mug-gothic-horoscope-coffee-mug-black-11oz-15oz",
+    title: "Aries Mug",
+    note: "Gothic Horoscope Coffee Mug (Black, 11oz / 15oz)",
+    category: "drinkware",
+    price: 8.51,
+    buyUrl: "https://paps-supply-co.printify.me/product/32935380",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9f2d5814ca88443013637/65217/6405/aries-mug-gothic-horoscope-coffee-mug-black-11oz-15oz.jpg?camera_label=front&revision=1791676266496"
+  },
+  {
+    slug: "thanks-for-the-gas-prices-funny-political-gas-sticker",
+    title: "Thanks For The Gas Prices",
+    note: "Funny Political Gas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933273",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9d76b90c840940a9251/72006/13462/thanks-for-the-gas-prices-funny-political-gas-sticker.jpg?camera_label=front&revision=1791673642282"
+  },
+  {
+    slug: "kawaii-mushroom-friends-cute-mushroom-sticker",
+    title: "Kawaii Mushroom Friends",
+    note: "Cute Mushroom Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933266",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9e06b90c840940a9257/72006/13462/kawaii-mushroom-friends-cute-mushroom-sticker.jpg?camera_label=front&revision=1791673641308"
+  },
+  {
+    slug: "vintage-botanical-mushrooms-cottagecore-mushroom-sticker",
+    title: "Vintage Botanical Mushrooms",
+    note: "Cottagecore Mushroom Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933264",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9eb18dbc04b55009850/72006/13462/vintage-botanical-mushrooms-cottagecore-mushroom-sticker.jpg?camera_label=front&revision=1791673640017"
+  },
+  {
+    slug: "paps-supply-co-vintage-badge-logo-sticker",
+    title: "Pap&#x27;s Supply Co.",
+    note: "Vintage Badge Logo Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933260",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9f4a8299a3c3906794c/72006/13462/paps-supply-co-vintage-badge-logo-sticker.jpg?camera_label=front&revision=1791673639033"
+  },
+  {
+    slug: "vote-2026-patriotic-election-sticker",
+    title: "Vote 2026",
+    note: "Patriotic Election Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933258",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9fd5cc486991a0a4de8/72006/13462/vote-2026-patriotic-election-sticker.jpg?camera_label=front&revision=1791673638173"
+  },
+  {
+    slug: "spooky-nurse-cute-halloween-nurse-sticker",
+    title: "Spooky Nurse",
+    note: "Cute Halloween Nurse Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933255",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca07e0493f890c05516f/72006/13462/spooky-nurse-cute-halloween-nurse-sticker.jpg?camera_label=front&revision=1791673637506"
+  },
+  {
+    slug: "witchy-teacher-cute-halloween-teacher-sticker",
+    title: "Witchy Teacher",
+    note: "Cute Halloween Teacher Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933253",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca10e0493f890c055176/72006/13462/witchy-teacher-cute-halloween-teacher-sticker.jpg?camera_label=front&revision=1791673637193"
+  },
+  {
+    slug: "mothman-point-pleasant-wv-retro-patch-sticker",
+    title: "Mothman",
+    note: "Point Pleasant WV Retro Patch Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933251",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca1ae0493f890c055180/72006/13462/mothman-point-pleasant-wv-retro-patch-sticker.jpg?camera_label=front&revision=1791673634672"
+  },
+  {
+    slug: "merry-mushroom-christmas-cute-holiday-mushroom-sticker",
+    title: "Merry Mushroom Christmas",
+    note: "Cute Holiday Mushroom Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933248",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca232ba66399a501c27e/72006/13462/merry-mushroom-christmas-cute-holiday-mushroom-sticker.jpg?camera_label=front&revision=1791673629025"
+  },
+  {
+    slug: "happy-hanukkah-cute-menorah-sticker",
+    title: "Happy Hanukkah",
+    note: "Cute Menorah Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933244",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca2ce0493f890c055187/72006/13462/happy-hanukkah-cute-menorah-sticker.jpg?camera_label=front&revision=1791673628196"
+  },
+  {
+    slug: "merry-christmas-ya-filthy-animal-funny-retro-santa-sticker",
+    title: "Merry Christmas Ya Filthy Animal",
+    note: "Funny Retro Santa Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933243",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca375cc486991a0a4df7/72006/13462/merry-christmas-ya-filthy-animal-funny-retro-santa-sticker.jpg?camera_label=front&revision=1791673627475"
+  },
+  {
+    slug: "thankful-blessed-and-pie-obsessed-funny-thanksgiving-turkey-sticker",
+    title: "Thankful Blessed and Pie Obsessed",
+    note: "Funny Thanksgiving Turkey Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933242",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca3f6b90c840940a9273/72006/13462/thankful-blessed-and-pie-obsessed-funny-thanksgiving-turkey-sticker.jpg?camera_label=front&revision=1791673627112"
+  },
+  {
+    slug: "death-before-decaf-funny-coffee-skull-sticker",
+    title: "Death Before Decaf",
+    note: "Funny Coffee Skull Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933240",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca490aab18fc4f0bef48/72006/13462/death-before-decaf-funny-coffee-skull-sticker.jpg?camera_label=front&revision=1791673626886"
+  },
+  {
+    slug: "fueled-by-caffeine-and-spite-gothic-coffee-sticker",
+    title: "Fueled by Caffeine and Spite",
+    note: "Gothic Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933234",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca530aab18fc4f0bef4d/72006/13462/fueled-by-caffeine-and-spite-gothic-coffee-sticker.jpg?camera_label=front&revision=1791673626475"
+  },
+  {
+    slug: "midnight-roast-dark-owl-coffee-sticker",
+    title: "Midnight Roast",
+    note: "Dark Owl Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933226",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9ca5ce0493f890c055190/72006/13462/midnight-roast-dark-owl-coffee-sticker.jpg?camera_label=front&revision=1791673623805"
+  },
+  {
+    slug: "independent-and-unbothered-funny-centrist-sticker",
+    title: "Independent And Unbothered",
+    note: "Funny Centrist Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933139",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9cf99d2b9825a0b4bf5/72006/13462/independent-and-unbothered-funny-centrist-sticker.jpg?camera_label=front&revision=1791673643262"
+  },
+  {
+    slug: "your-silence-is-a-vote-too-get-out-the-vote-sticker",
+    title: "Your Silence Is A Vote Too",
+    note: "Get Out The Vote Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933100",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9c799d2b9825a0b4be9/72006/13462/your-silence-is-a-vote-too-get-out-the-vote-sticker.jpg?camera_label=front&revision=1791673644209"
+  },
+  {
+    slug: "politically-exhausted-funny-election-burnout-sticker",
+    title: "Politically Exhausted",
+    note: "Funny Election Burnout Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933078",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9bf284c7c4ec505036e/72006/13462/politically-exhausted-funny-election-burnout-sticker.jpg?camera_label=front&revision=1791673645037"
+  },
+  {
+    slug: "bans-off-our-bodies-pro-choice-feminist-sticker",
+    title: "Bans Off Our Bodies",
+    note: "Pro-Choice Feminist Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933066",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9b6a8299a3c39067930/72006/13462/bans-off-our-bodies-pro-choice-feminist-sticker.jpg?camera_label=front&revision=1791673651286"
+  },
+  {
+    slug: "dont-tread-on-my-paycheck-conservative-tax-sticker",
+    title: "Don&#x27;t Tread On My Paycheck",
+    note: "Conservative Tax Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933048",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9ae284c7c4ec5050364/72006/13462/dont-tread-on-my-paycheck-conservative-tax-sticker.jpg?camera_label=front&revision=1791673652268"
+  },
+  {
+    slug: "no-kings-punk-protest-sticker",
+    title: "No Kings",
+    note: "Punk Protest Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933032",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9a6c9a932576a08b42b/72006/13462/no-kings-punk-protest-sticker.jpg?camera_label=front&revision=1791673653120"
+  },
+  {
+    slug: "i-voted-bold-civic-sticker",
+    title: "I Voted",
+    note: "Bold Civic Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933025",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c99cfa5e5cd63700e059/72006/13462/i-voted-bold-civic-sticker.jpg?camera_label=front&revision=1791673654117"
+  },
+  {
+    slug: "anti-ai-minimal-robot-prohibition-sticker",
+    title: "Anti AI",
+    note: "Minimal Robot Prohibition Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32933005",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9945cc486991a0a4db3/72006/13462/anti-ai-minimal-robot-prohibition-sticker.jpg?camera_label=front&revision=1791673655132"
+  },
+  {
+    slug: "dark-roast-society-raven-coffee-sticker",
+    title: "Dark Roast Society",
+    note: "Raven Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932996",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c98bc9a932576a08b41f/72006/13462/dark-roast-society-raven-coffee-sticker.jpg?camera_label=front&revision=1791673656016"
+  },
+  {
+    slug: "dead-tired-still-caffeinated-funny-skeleton-coffee-sticker",
+    title: "Dead Tired Still Caffeinated",
+    note: "Funny Skeleton Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932930",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9820aab18fc4f0beef4/72006/13462/dead-tired-still-caffeinated-funny-skeleton-coffee-sticker.jpg?camera_label=front&revision=1791673661411"
+  },
+  {
+    slug: "coffee-is-my-ritual-gothic-coffee-altar-sticker",
+    title: "Coffee Is My Ritual",
+    note: "Gothic Coffee Altar Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932864",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9776b90c840940a9229/72006/13462/coffee-is-my-ritual-gothic-coffee-altar-sticker.jpg?camera_label=front&revision=1791673661700"
+  },
+  {
+    slug: "witchs-brew-coffee-black-cat-coffee-sticker",
+    title: "Witch&#x27;s Brew Coffee",
+    note: "Black Cat Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932845",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c96e0aab18fc4f0beeed/72006/13462/witchs-brew-coffee-black-cat-coffee-sticker.jpg?camera_label=front&revision=1791673661828"
+  },
+  {
+    slug: "cursed-espresso-gothic-coffee-sticker",
+    title: "Cursed Espresso",
+    note: "Gothic Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932380",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c966a8299a3c39067921/72006/13462/cursed-espresso-gothic-coffee-sticker.jpg?camera_label=front&revision=1791673662785"
+  },
+  {
+    slug: "caffeine-seance-gothic-coffee-witch-sticker",
+    title: "Caffeine Seance",
+    note: "Gothic Coffee Witch Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932378",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c95ea8299a3c39067914/72006/13462/caffeine-seance-gothic-coffee-witch-sticker.jpg?camera_label=front&revision=1791673666037"
+  },
+  {
+    slug: "haunted-harvest-latte-cute-halloween-ghost-coffee-sticker",
+    title: "Haunted Harvest Latte",
+    note: "Cute Halloween Ghost Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932375",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9575cc486991a0a4d89/72006/13462/haunted-harvest-latte-cute-halloween-ghost-coffee-sticker.jpg?camera_label=front&revision=1791673666931"
+  },
+  {
+    slug: "midnight-garden-brew-gothic-cottagecore-coffee-sticker",
+    title: "Midnight Garden Brew",
+    note: "Gothic Cottagecore Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932373",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c951fa5e5cd63700e042/72006/13462/midnight-garden-brew-gothic-cottagecore-coffee-sticker.jpg?camera_label=front&revision=1791673667784"
+  },
+  {
+    slug: "decaf-is-a-cry-for-help-gothic-skull-coffee-sticker",
+    title: "Decaf Is a Cry for Help",
+    note: "Gothic Skull Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932370",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c94a6b90c840940a91f8/72006/13462/decaf-is-a-cry-for-help-gothic-skull-coffee-sticker.jpg?camera_label=front&revision=1791673668744"
+  },
+  {
+    slug: "forage-at-midnight-gothic-mushroom-moth-sticker",
+    title: "Forage at Midnight",
+    note: "Gothic Mushroom Moth Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932369",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c943a8299a3c39067907/72006/13462/forage-at-midnight-gothic-mushroom-moth-sticker.jpg?camera_label=front&revision=1791673669973"
+  },
+  {
+    slug: "witches-love-christmas-too-witch-hat-holiday-sticker",
+    title: "Witches Love Christmas Too",
+    note: "Witch Hat Holiday Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932366",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c93d5cc486991a0a4d79/72006/13462/witches-love-christmas-too-witch-hat-holiday-sticker.jpg?camera_label=front&revision=1791673671255"
+  },
+  {
+    slug: "gothic-poinsettia-skull-dark-floral-christmas-sticker",
+    title: "Gothic Poinsettia Skull",
+    note: "Dark Floral Christmas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932365",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c93799d2b9825a0b4b9e/72006/13462/gothic-poinsettia-skull-dark-floral-christmas-sticker.jpg?camera_label=front&revision=1791673672169"
+  },
+  {
+    slug: "merry-cryptmas-gothic-christmas-tree-sticker",
+    title: "Merry Cryptmas",
+    note: "Gothic Christmas Tree Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932364",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9302ba66399a501c22c/72006/13462/merry-cryptmas-gothic-christmas-tree-sticker.jpg?camera_label=front&revision=1791673673426"
+  },
+  {
+    slug: "merry-coffeemas-gothic-christmas-coffee-mug-sticker",
+    title: "Merry Coffeemas",
+    note: "Gothic Christmas Coffee Mug Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932363",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c92afa5e5cd63700e02c/72006/13462/merry-coffeemas-gothic-christmas-coffee-mug-sticker.jpg?camera_label=front&revision=1791673674192"
+  },
+  {
+    slug: "deck-the-halls-skeleton-christmas-coffee-sticker",
+    title: "Deck the Halls",
+    note: "Skeleton Christmas Coffee Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932361",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9232ba66399a501c225/72006/13462/deck-the-halls-skeleton-christmas-coffee-sticker.jpg?camera_label=front&revision=1791673679941"
+  },
+  {
+    slug: "merry-gothmas-gothic-christmas-wreath-sticker",
+    title: "Merry Gothmas",
+    note: "Gothic Christmas Wreath Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932355",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c91c18dbc04b550097fa/72006/13462/merry-gothmas-gothic-christmas-wreath-sticker.jpg?camera_label=front&revision=1791673682847"
+  },
+  {
+    slug: "just-the-crow-gothic-crow-sticker",
+    title: "Just the Crow",
+    note: "Gothic Crow Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932354",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9166b90c840940a91e2/72006/13462/just-the-crow-gothic-crow-sticker.jpg?camera_label=front&revision=1791673683261"
+  },
+  {
+    slug: "midnight-noel-gothic-christmas-sticker",
+    title: "Midnight Noel",
+    note: "Gothic Christmas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932353",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c90f99d2b9825a0b4b7b/72006/13462/midnight-noel-gothic-christmas-sticker.jpg?camera_label=front&revision=1791673684218"
+  },
+  {
+    slug: "krampus-claus-gothic-christmas-sticker",
+    title: "Krampus Claus",
+    note: "Gothic Christmas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932351",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c9085cc486991a0a4d3b/72006/13462/krampus-claus-gothic-christmas-sticker.jpg?camera_label=front&revision=1791673684559"
+  },
+  {
+    slug: "mosh-now-gothic-metalhead-concert-sticker",
+    title: "Mosh. Now.",
+    note: "Gothic Metalhead Concert Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932349",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c90199d2b9825a0b4b6b/72006/13462/mosh-now-gothic-metalhead-concert-sticker.jpg?camera_label=front&revision=1791673685040"
+  },
+  {
+    slug: "boba-bat-cute-pastel-bat-boba-sticker",
+    title: "Boba Bat",
+    note: "Cute Pastel Bat Boba Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932346",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8fb6b90c840940a91be/72006/13462/boba-bat-cute-pastel-bat-boba-sticker.jpg?camera_label=front&revision=1791673685938"
+  },
+  {
+    slug: "spooky-cutie-cute-pink-ghost-sticker",
+    title: "Spooky Cutie",
+    note: "Cute Pink Ghost Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932336",
+    featured: true,
+    image: "https://images-api.printify.com/mockup/6ac9c8f418dbc04b550097c7/72006/13462/spooky-cutie-cute-pink-ghost-sticker.jpg?camera_label=front&revision=1791673686872"
+  },
+  {
+    slug: "silent-night-dark-roast-gothic-coffee-christmas-sticker",
+    title: "Silent Night Dark Roast",
+    note: "Gothic Coffee Christmas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932335",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8ee2ba66399a501c1f8/72006/13462/silent-night-dark-roast-gothic-coffee-christmas-sticker.jpg?camera_label=front&revision=1791673748865"
+  },
+  {
+    slug: "eternal-yule-gothic-christmas-wreath-sticker",
+    title: "Eternal Yule",
+    note: "Gothic Christmas Wreath Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932333",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8e80aab18fc4f0bee8d/72006/13462/eternal-yule-gothic-christmas-wreath-sticker.jpg?camera_label=front&revision=1791673749640"
+  },
+  {
+    slug: "storm-coming-holographic-neon-warning-sign-sticker",
+    title: "Storm Coming",
+    note: "Holographic Neon Warning Sign Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932332",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8e118dbc04b550097bd/72006/13462/storm-coming-holographic-neon-warning-sign-sticker.jpg?camera_label=front&revision=1791673755939"
+  },
+  {
+    slug: "recharge-holographic-neon-battery-sign-sticker",
+    title: "Recharge",
+    note: "Holographic Neon Battery Sign Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932329",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8dac9a932576a08b3a2/72006/13462/recharge-holographic-neon-battery-sign-sticker.jpg?camera_label=front&revision=1791673757444"
+  },
+  {
+    slug: "ghost-of-christmas-past-haunted-victorian-christmas-sticker",
+    title: "Ghost of Christmas Past",
+    note: "Haunted Victorian Christmas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932328",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8d46b90c840940a91a2/72006/13462/ghost-of-christmas-past-haunted-victorian-christmas-sticker.jpg?camera_label=front&revision=1791673758266"
+  },
+  {
+    slug: "yule-cat-gothic-christmas-sticker",
+    title: "Yule Cat",
+    note: "Gothic Christmas Sticker",
+    category: "stickers",
+    price: 5.18,
+    buyUrl: "https://paps-supply-co.printify.me/product/32932324",
+    featured: false,
+    image: "https://images-api.printify.com/mockup/6ac9c8c36b90c840940a9197/72006/13462/yule-cat-gothic-christmas-sticker.jpg?camera_label=front&revision=1791673758506"
+  }
+];
