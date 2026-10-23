@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://papssupplyco.com/sitemap.xml

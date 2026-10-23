@@ -109,6 +109,7 @@ footer {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: color 0.25s ease;
+  padding: 0.5rem 0.15rem;
 }
 
 .site-nav a:hover {
@@ -267,6 +268,7 @@ main {
   border: 1px solid rgba(184, 168, 143, 0.3);
   border-radius: 2px;
   padding: 0.45rem 1rem;
+  min-height: 44px;
   cursor: pointer;
   transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
 }
@@ -304,6 +306,292 @@ main {
   box-shadow: 0 0 12px var(--gold-glow);
 }
 
+/* ---------- Accessibility (B-40) ---------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--gold);
+  color: #171310;
+  padding: 0.6rem 1rem;
+  z-index: 50;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  color: var(--gold);
+}
+
+/* ---------- Collection chips (B-19) ---------- */
+
+.theme-chips {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid rgba(184, 168, 143, 0.3);
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  min-height: 44px;
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.chip:hover {
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.chip.active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(201, 163, 92, 0.08);
+}
+
+.result-count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  min-height: 1.2em;
+}
+
+.show-more {
+  display: block;
+  margin: 2rem auto 0;
+}
+
+.catalog-status {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem 0;
+}
+
+.catalog-status a {
+  color: var(--gold);
+}
+
+/* ---------- Featured compact cards ---------- */
+
+.featured-card {
+  background: var(--panel);
+  border: 1px solid rgba(184, 168, 143, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.featured-card a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.featured-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+
+.featured-card-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.featured-card-price {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ---------- Card extras ---------- */
+
+.card-save {
+  font-size: 0.8rem;
+}
+
+.card-save a {
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.card-save a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+.buy-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Trust block (B-45) ---------- */
+
+.trust {
+  padding: 3rem 0 4rem;
+  max-width: 64rem;
+  margin: 0 auto;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 800px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust-item {
+  background: var(--panel);
+  border: 1px solid rgba(184, 168, 143, 0.15);
+  border-radius: 3px;
+  padding: 1.25rem 1.4rem;
+}
+
+.trust-item h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.trust-item p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* ---------- Kit capture slots (B-43) ---------- */
+
+.kit-slot {
+  max-width: 34rem;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+.kit-slot-footer {
+  flex-basis: 100%;
+}
+
+.kit-offer {
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.kit-label {
+  position: absolute;
+  left: -9999px;
+}
+
+.kit-input {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid rgba(184, 168, 143, 0.3);
+  border-radius: 2px;
+  padding: 0.6rem 0.9rem;
+  min-width: 220px;
+  margin-right: 0.5rem;
+}
+
+.kit-note {
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Product pages (B-10) ---------- */
+
+.product-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+
+.breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.product-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .product-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-media {
+  border: 1px solid rgba(201, 163, 92, 0.15);
+  border-radius: 3px;
+}
+
+.product-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.product-info .card-price {
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.product-info .btn {
+  margin-top: 1rem;
+}
+
 /* ---------- Product grid ---------- */
 
 .product-grid {
@@ -319,8 +607,10 @@ main {
 }
 
 @media (max-width: 560px) {
+  /* B-41: two columns on phones instead of a 131-card single column. */
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }
 
@@ -477,6 +767,14 @@ main {
 
 /* ---------- Responsive header ---------- */
 
+/* B-41: the header wraps and grows on small screens — keep anchored
+   sections clear of it instead of the fixed desktop offset. */
+@media (max-width: 900px) {
+  html {
+    scroll-padding-top: 8.5rem;
+  }
+}
+
 @media (max-width: 640px) {
   .site-header {
     justify-content: center;
@@ -485,6 +783,10 @@ main {
 
   .site-nav {
     justify-content: center;
+  }
+
+  html {
+    scroll-padding-top: 11rem;
   }
 }
 

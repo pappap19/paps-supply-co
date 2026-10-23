@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pap's Supply Co. — Dark Goods for Daily Rituals</title>
+  <meta name="description" content="Gothic die-cut vinyl stickers, mugs, candles, and hoodies. Printed to order.">
+  <link rel="canonical" href="https://papssupplyco.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pap's Supply Co.">
+  <meta property="og:title" content="Pap's Supply Co. — Dark Goods for Daily Rituals">
+  <meta property="og:description" content="Gothic die-cut vinyl stickers, mugs, candles, and hoodies. Printed to order.">
+  <meta property="og:url" content="https://papssupplyco.com/">
+  <meta property="og:image" content="">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pap's Supply Co. — Dark Goods for Daily Rituals">
+  <meta name="twitter:description" content="Gothic die-cut vinyl stickers, mugs, candles, and hoodies. Printed to order.">
+  <meta name="twitter:image" content="">
+  <meta name="theme-color" content="#171310">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Pap's Supply Co.", "url": "https://papssupplyco.com/", "sameAs": ["https://www.instagram.com/paps.supply.co/", "https://www.pinterest.com/papssupplyco/"]}</script>
+  <!--ITEMLIST:START--><!--ITEMLIST:END-->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+  <a class="skip-link" href="#catalog">Skip to the catalog</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top">PAP'S SUPPLY CO.</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#catalog" data-filter="stickers">Stickers</a>
+      <a href="#catalog" data-filter="drinkware">Drinkware</a>
+      <a href="#catalog" data-filter="candles">Candles</a>
+      <a href="#catalog" data-filter="apparel">Apparel</a>
+      <a href="#about">About</a>
+      <a class="printify-link" href="https://shop.papssupplyco.com" target="_blank" rel="noopener">Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <h1 class="hero-title">Dark Goods for Daily Rituals</h1>
+      <p class="hero-sub">Haunted coffee, dark Christmas, cryptids, and cute spooks — on stickers, shirts, mugs, and more.</p>
+      <a class="btn btn-gold" href="#catalog">Browse the goods</a>
+    </section>
+
+    <section class="featured" id="featured">
+      <h2 class="section-title">Featured</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <div class="featured-strip" id="featured-strip"><!--PRERENDER:FEATURED--><!--/PRERENDER:FEATURED--></div>
+      <div class="kit-slot" id="kit-slot-featured">
+        <!-- KIT: set kitFormAction in site-config.json to the Kit form action URL to activate this form. -->
+        <form class="kit-form" action="KIT_FORM_ACTION_URL" method="post">
+          <p class="kit-offer">Join the haunt list — 10% off stocking-stuffer stickers, first dibs on new drops, no spam.</p>
+          <label class="kit-label" for="kit-email-featured">Email address</label>
+          <input class="kit-input" id="kit-email-featured" type="email" name="email_address" required placeholder="you@example.com">
+          <button class="btn btn-gold" type="submit">Get 10% off</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="catalog" id="catalog">
+      <h2 class="section-title">The Catalog</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <div class="catalog-controls">
+        <div class="filter-tabs" role="group" aria-label="Filter by category">
+          <button class="tab active" data-filter="all" aria-pressed="true">All</button>
+          <button class="tab" data-filter="stickers" aria-pressed="false">Stickers</button>
+          <button class="tab" data-filter="drinkware" aria-pressed="false">Drinkware</button>
+          <button class="tab" data-filter="candles" aria-pressed="false">Candles</button>
+          <button class="tab" data-filter="apparel" aria-pressed="false">Apparel</button>
+        </div>
+        <input type="search" id="search" class="search-input" placeholder="Search the goods…" aria-label="Search products">
+      </div>
+      <div class="theme-chips" role="group" aria-label="Filter by collection">
+        <button class="chip active" data-theme="all" aria-pressed="true">All collections</button>
+        <button class="chip" data-theme="christmas" aria-pressed="false">Christmas</button>
+        <button class="chip" data-theme="coffee" aria-pressed="false">Coffee</button>
+        <button class="chip" data-theme="mushroom" aria-pressed="false">Mushroom</button>
+        <button class="chip" data-theme="witch" aria-pressed="false">Witch</button>
+        <button class="chip" data-theme="horoscope" aria-pressed="false">Horoscope</button>
+      </div>
+      <p class="result-count" id="result-count" aria-live="polite"></p>
+      <div class="product-grid" id="product-grid"><!--PRERENDER:GRID--><!--/PRERENDER:GRID--></div>
+      <p class="empty-state" id="empty-state" hidden>No goods match that search. Try another spell.</p>
+      <p class="catalog-status" id="catalog-status" hidden></p>
+      <button class="btn btn-gold show-more" id="show-more" hidden>Show more goods</button>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="section-title">Small shop. Dark goods.</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <p class="about-text">Pap's Supply Co. is a one-person shop making die-cut vinyl stickers — plus mugs, zodiac candles, and a few hoodies — for the haunted-coffee, dark-Christmas, cute-spook crowd. Everything's printed to order and shipped from the US. Pick your poison; stick it somewhere it haunts daily.</p>
+    </section>
+
+    <section class="trust" id="trust">
+      <h2 class="section-title">Good to Know</h2>
+      <div class="gold-rule" aria-hidden="true"></div>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <h3>Printed to order</h3>
+          <p>Every piece is made when you order it — allow 2–7 business days for production, plus shipping time.</p>
+        </div>
+        <div class="trust-item">
+          <h3>Designed in Portland</h3>
+          <p>A one-person shop. Every design starts here, for the haunted-coffee, dark-Christmas, cute-spook crowd.</p>
+        </div>
+        <div class="trust-item">
+          <h3>If something's wrong</h3>
+          <p>Orders that arrive with a defect or production error are replaced or refunded when reported within 30 days — reach us on Instagram and we'll make it right.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="footer-copyright">© 2026 Pap's Supply Co.</p>
+    <a class="footer-link" href="https://www.instagram.com/paps.supply.co/" target="_blank" rel="noopener">Instagram</a>
+    <a class="footer-link" href="https://www.pinterest.com/papssupplyco/" target="_blank" rel="noopener">Pinterest</a>
+    <a class="footer-link" href="#top">Back to top</a>
+    <div class="kit-slot kit-slot-footer" id="kit-slot-footer">
+      <!-- KIT: set kitFormAction in site-config.json to the Kit form action URL to activate this form. -->
+      <form class="kit-form" action="KIT_FORM_ACTION_URL" method="post">
+        <p class="kit-offer">Join the haunt list — 10% off stocking-stuffer stickers, first dibs on new drops, no spam.</p>
+        <label class="kit-label" for="kit-email-footer">Email address</label>
+        <input class="kit-input" id="kit-email-footer" type="email" name="email_address" required placeholder="you@example.com">
+        <button class="btn btn-gold" type="submit">Get 10% off</button>
+      </form>
+    </div>
+  </footer>
+
+  <script src="data/products.js"></script>
+  <script src="data/config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

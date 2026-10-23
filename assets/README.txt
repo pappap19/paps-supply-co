@@ -1,10 +1,10 @@
-Product images live here.
+Pap's Supply Co. — site assets
 
-Add one PNG per product, named after its slug:
+- favicon.svg: the site icon, referenced by index.html and product pages.
+- apple-touch-icon.png: 180x180 touch icon for iOS home-screen saves.
 
-  assets/products/<slug>.png
-
-Example: assets/products/midnight-nutcracker-sticker.png
-
-Until an image exists, the site renders an elegant dark placeholder
-panel with the product's initial — never a broken-image icon.
+Product imagery is NOT stored here. Every product image is served from the
+Printify CDN (images-api.printify.com mockup URLs carried in
+data/products.js and chosen by the sync generators' pick_image rule).
+The old local products/ JPG tree was archived on 2026-10-23
+(../archive/assets-products/) — it was referenced by nothing.
