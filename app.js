@@ -104,7 +104,7 @@
     buy.href = product.buyUrl;
     buy.target = "_blank";
     buy.rel = "noopener";
-    buy.textContent = "Buy on Printify";
+    buy.textContent = "Buy Now";
 
     card.appendChild(media);
     card.appendChild(body);
