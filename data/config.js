@@ -1,5 +1,5 @@
 // Pap's Supply Co. — site text + featured picks, generated from site-config.json
-// by sync_from_printify.py. Edit site-config.json (or ask Muse), then re-run the sync.
+// by the site sync. Edit site-config.json (or ask Muse), then re-run the sync.
 
 const SITE_CONFIG = {
   "aboutHeading": "Small shop. Dark goods.",
