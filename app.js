@@ -185,6 +185,12 @@
 
   searchInput.addEventListener("input", function () {
     searchTerm = searchInput.value.trim().toLowerCase();
+    if (searchTerm !== "" && activeFilter !== "all") {
+      // Search always covers the whole catalog: typing a search resets
+      // the category filter so a product in another category still shows.
+      setFilter("all");
+      return;
+    }
     renderCatalog();
   });
 
