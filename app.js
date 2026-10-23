@@ -18,30 +18,7 @@
     document.querySelectorAll(".site-nav a[data-filter]")
   );
 
-  var revealObserver = null;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  if ("IntersectionObserver" in window && !reduceMotion.matches) {
-    revealObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-  }
-
-  function observeReveal(el) {
-    if (revealObserver) {
-      revealObserver.observe(el);
-    } else {
-      el.classList.add("visible");
-    }
-  }
 
   function formatPrice(value) {
     return "$" + value.toFixed(2);
@@ -59,7 +36,7 @@
 
   function cardFor(product) {
     var card = document.createElement("article");
-    card.className = "product-card reveal";
+    card.className = "product-card";
     card.dataset.category = product.category;
 
     var media = document.createElement("div");
@@ -131,7 +108,6 @@
     products.forEach(function (product) {
       var card = cardFor(product);
       grid.appendChild(card);
-      observeReveal(card);
     });
 
     emptyState.hidden = products.length > 0;
@@ -144,7 +120,6 @@
     }).forEach(function (product) {
       var card = cardFor(product);
       featuredStrip.appendChild(card);
-      observeReveal(card);
     });
   }
 
@@ -196,9 +171,4 @@
 
   renderFeatured();
   renderCatalog();
-  document
-    .querySelectorAll("section.reveal")
-    .forEach(function (section) {
-      observeReveal(section);
-    });
 })();
