@@ -44,21 +44,51 @@ module.exports = async (req, res) => {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json',
   };
+  // Trial access: Pinterest requires writes to go to the API Sandbox
+  // host (production returns HTTP 403 code 29 for pin creation).
+  const PROD = 'https://api.pinterest.com/v5';
+  const SAND = 'https://api-sandbox.pinterest.com/v5';
   const steps = [];
-  const boardsRes = await fetch(
-    'https://api.pinterest.com/v5/boards?page_size=100',
-    { headers });
-  const boardsText = await boardsRes.text();
-  steps.push(['GET /v5/boards', boardsRes.status, boardsText.slice(0, 1200)]);
+  async function getBoards(base, label) {
+    const r = await fetch(`${base}/boards?page_size=100`, { headers });
+    const t = await r.text();
+    steps.push([`GET /v5/boards (${label})`, r.status, t.slice(0, 1200)]);
+    if (r.status !== 200) return [];
+    try { return JSON.parse(t).items || []; } catch { return []; }
+  }
   let boardId = '', boardName = '';
-  if (boardsRes.status === 200) {
-    const items = JSON.parse(boardsText).items || [];
-    const pick = items.find(b => b.name === 'Holiday Shop') || items[0];
-    if (pick) { boardId = pick.id; boardName = pick.name || ''; }
+  const sandBoards = await getBoards(SAND, 'sandbox');
+  const pickS = sandBoards.find(b => b.name === 'Holiday Shop') ||
+    sandBoards[0];
+  if (pickS) { boardId = pickS.id; boardName = pickS.name || ''; }
+  if (!boardId) {
+    // No sandbox board yet — create one in the sandbox.
+    const cb = await fetch(`${SAND}/boards`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        name: 'Holiday Shop',
+        description: "Pap's Supply Co product pins (API demo board).",
+        privacy: 'PUBLIC',
+      }),
+    });
+    const cbText = await cb.text();
+    steps.push(['POST /v5/boards (sandbox)', cb.status,
+      cbText.slice(0, 800)]);
+    if (cb.status === 200 || cb.status === 201) {
+      try {
+        const b = JSON.parse(cbText);
+        boardId = b.id || ''; boardName = b.name || 'Holiday Shop';
+      } catch { /* fall through */ }
+    }
+  }
+  if (!boardId) {
+    // Last resort for display purposes: show the production boards too.
+    await getBoards(PROD, 'production');
   }
   let result = '';
   if (boardId) {
-    const pinRes = await fetch('https://api.pinterest.com/v5/pins', {
+    const pinRes = await fetch(`${SAND}/pins`, {
       method: 'POST',
       headers,
       body: JSON.stringify({
@@ -70,7 +100,8 @@ module.exports = async (req, res) => {
       }),
     });
     const pinText = await pinRes.text();
-    steps.push(['POST /v5/pins', pinRes.status, pinText.slice(0, 1600)]);
+    steps.push(['POST /v5/pins (sandbox)', pinRes.status,
+      pinText.slice(0, 1600)]);
     if (pinRes.status === 200 || pinRes.status === 201) {
       const pid = JSON.parse(pinText).id || '';
       result = `<p>🎉 <strong>Pin created via the API</strong> on board ` +
@@ -89,7 +120,10 @@ module.exports = async (req, res) => {
     `<title>Publish result — Pap's Supply Co Publisher</title>` +
     `<style>${CSS}</style></head><body>` +
     `<h1>Live API result</h1>${result}<pre>${esc(log)}</pre>` +
-    `<p class="note">Access token is held only in a short-lived ` +
+    `<p class="note">This app is on Trial access, so Pinterest ` +
+    `requires pin creation through its API Sandbox host ` +
+    `(api-sandbox.pinterest.com); reads and OAuth run on the ` +
+    `production API. Access token is held only in a short-lived ` +
     `httpOnly session cookie and is never stored or logged.</p>` +
     `</body></html>`);
 };
