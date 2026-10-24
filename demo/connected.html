@@ -15,12 +15,15 @@ h1 { font-size: 2em; border-bottom: 2px solid #333; padding-bottom: 10px; }
 <body>
 <h1>Pap's Supply Co Publisher</h1>
 <p>✅ Connected to Pinterest as <strong id="who">@…</strong> via OAuth 2.0.</p>
+<p class="note" id="diag"></p>
 <p><a class="btn" href="/api/publish">Publish a product pin via the API</a></p>
 <p class="note">This publishes one pin for a real Pap's Supply Co product
 using the access token from the OAuth flow.</p>
 <script>
   var m = document.cookie.match(/(?:^|; )pin_user=([^;]*)/);
   if (m) document.getElementById('who').textContent = '@' + decodeURIComponent(m[1]);
+  var d = document.cookie.match(/(?:^|; )pin_diag=([^;]*)/);
+  if (d) document.getElementById('diag').textContent = 'Diagnostics: ' + decodeURIComponent(d[1]);
 </script>
 </body>
 </html>
