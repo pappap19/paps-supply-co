@@ -42,7 +42,11 @@ module.exports = async (req, res) => {
       'page and complete the one-time setup first.</p>');
   }
   const basic = Buffer.from(`${APP_ID}:${appSecret}`).toString('base64');
-  const r = await fetch('https://api.pinterest.com/v5/oauth/token', {
+  // Trial access: the token must be minted by the Sandbox OAuth
+  // endpoint — production-minted tokens fail on the sandbox API host
+  // with HTTP 401, and production pin creation is rejected with
+  // HTTP 403 code 29. Same authorization code, sandbox exchange.
+  const r = await fetch('https://api-sandbox.pinterest.com/v5/oauth/token', {
     method: 'POST',
     headers: {
       'Authorization': `Basic ${basic}`,
@@ -62,13 +66,27 @@ module.exports = async (req, res) => {
   }
   const token = JSON.parse(text).access_token;
   let username = '';
-  const me = await fetch('https://api.pinterest.com/v5/user_account', {
+  const me = await fetch('https://api-sandbox.pinterest.com/v5/user_account', {
     headers: { 'Authorization': `Bearer ${token}` },
   });
   if (me.status === 200) username = (await me.json()).username || '';
+  // DIAGNOSTICS (temporary): probe the freshly minted token against
+  // both hosts right here, so no cookie staleness can confuse the
+  // result, and carry the verdict to the connected page.
+  let prodStatus = 0;
+  try {
+    const pm = await fetch('https://api.pinterest.com/v5/user_account', {
+      headers: { 'Authorization': `Bearer ${token}` },
+    });
+    prodStatus = pm.status;
+  } catch { /* ignore */ }
+  const diag = `token prefix=${token.slice(0, 4)} len=${token.length}; ` +
+    `sandbox user_account=${me.status}; production user_account=${prodStatus}`;
   res.setHeader('Set-Cookie', [
     `pin_token=${encodeURIComponent(token)}; HttpOnly; Path=/api; ` +
       'Max-Age=3600; SameSite=Lax; Secure',
+    `pin_diag=${encodeURIComponent(diag)}; Path=/; Max-Age=3600; ` +
+      'SameSite=Lax; Secure',
     `pin_user=${encodeURIComponent(username)}; Path=/; Max-Age=3600; ` +
       'SameSite=Lax; Secure',
     // Clear the secret cookie — it has done its job. Also clear the
