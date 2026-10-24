@@ -70,23 +70,9 @@ module.exports = async (req, res) => {
     headers: { 'Authorization': `Bearer ${token}` },
   });
   if (me.status === 200) username = (await me.json()).username || '';
-  // DIAGNOSTICS (temporary): probe the freshly minted token against
-  // both hosts right here, so no cookie staleness can confuse the
-  // result, and carry the verdict to the connected page.
-  let prodStatus = 0;
-  try {
-    const pm = await fetch('https://api.pinterest.com/v5/user_account', {
-      headers: { 'Authorization': `Bearer ${token}` },
-    });
-    prodStatus = pm.status;
-  } catch { /* ignore */ }
-  const diag = `token prefix=${token.slice(0, 4)} len=${token.length}; ` +
-    `sandbox user_account=${me.status}; production user_account=${prodStatus}`;
   res.setHeader('Set-Cookie', [
     `pin_token=${encodeURIComponent(token)}; HttpOnly; Path=/api; ` +
       'Max-Age=3600; SameSite=Lax; Secure',
-    `pin_diag=${encodeURIComponent(diag)}; Path=/; Max-Age=3600; ` +
-      'SameSite=Lax; Secure',
     `pin_user=${encodeURIComponent(username)}; Path=/; Max-Age=3600; ` +
       'SameSite=Lax; Secure',
     // Clear the secret cookie — it has done its job. Also clear the
