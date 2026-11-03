@@ -137,16 +137,6 @@
       body.appendChild(size);
     }
 
-    var save = document.createElement("p");
-    save.className = "card-save";
-    var saveLink = document.createElement("a");
-    saveLink.href = pinSaveUrl(product);
-    saveLink.target = "_blank";
-    saveLink.rel = "noopener";
-    saveLink.textContent = "Save on Pinterest";
-    save.appendChild(saveLink);
-    body.appendChild(save);
-
     var buy = document.createElement("a");
     buy.className = "btn btn-gold";
     buy.href = product.buyUrl;
@@ -226,7 +216,8 @@
     if (!catalog) return [];
     return catalog.filter(function (product) {
       var matchesCategory =
-        activeFilter === "all" || product.category === activeFilter;
+        activeFilter === "all" || product.category === activeFilter ||
+        (activeFilter === "packs" && /sticker pack/i.test(product.name || ""));
       return matchesCategory && matchesTheme(product) && matchesSearch(product);
     });
   }
@@ -298,7 +289,7 @@
       var kv = pair.split("=");
       if (kv.length === 2) params[kv[0]] = decodeURIComponent(kv[1]);
     });
-    if (params.filter && ["all", "stickers", "drinkware", "candles", "apparel"]
+    if (params.filter && ["all", "stickers", "packs", "drinkware", "candles", "apparel", "stockings", "backpacks", "phone-cases"]
         .indexOf(params.filter) !== -1) {
       activeFilter = params.filter;
     }
