@@ -44,7 +44,7 @@ import sys
 SHOP = "29269079"
 BIN = "/opt/hatch/bin/printify"
 BASE = "/home/hatch/workspace/paps-site"
-CATEGORIES = {600: "stickers", 400: "stickers", 479: "drinkware", 1943: "candles", 77: "apparel", 380: "stockings", 413: "backpacks", 269: "phone-cases"}
+CATEGORIES = {600: "stickers", 400: "stickers", 479: "drinkware", 1943: "candles", 77: "apparel", 380: "stockings", 413: "backpacks", 269: "phone-cases", 220: "pillows"}
 # Google product taxonomy paths (verified against Google's official taxonomy
 # file, 2021-09-21): stickers 4054, mugs 2169, candles 588, shirts & tops 212
 # (no hoodie leaf exists — hoodies map to Shirts & Tops). Feeds carry this as
@@ -57,8 +57,9 @@ GOOGLE_PRODUCT_CATEGORY = {
     "stockings": "Home & Garden > Holiday & Seasonal Decor > Christmas Decorations > Christmas Stockings",
     "backpacks": "Luggage & Bags > Backpacks",
     "phone-cases": "Electronics > Communications > Telephony > Mobile Phone Accessories > Mobile Phone Cases",
+    "pillows": "Home & Garden > Decor > Decorative Pillows",
 }
-CATEGORY_ORDER = ["stickers", "candles", "drinkware", "apparel", "stockings", "backpacks", "phone-cases"]
+CATEGORY_ORDER = ["stickers", "candles", "drinkware", "apparel", "stockings", "backpacks", "phone-cases", "pillows"]
 SITE = "https://papssupplyco.com"
 STICKER_SIZE_NOTE = '2" · 3" · 4" die-cut vinyl'
 PREFERRED_MOCKUP_SEGMENT = "72006"  # B-47: normalize sticker mockup variant

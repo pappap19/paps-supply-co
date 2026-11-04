@@ -289,7 +289,7 @@
       var kv = pair.split("=");
       if (kv.length === 2) params[kv[0]] = decodeURIComponent(kv[1]);
     });
-    if (params.filter && ["all", "stickers", "packs", "drinkware", "candles", "apparel", "stockings", "backpacks", "phone-cases"]
+    if (params.filter && ["all", "stickers", "packs", "drinkware", "candles", "apparel", "stockings", "backpacks", "phone-cases", "pillows"]
         .indexOf(params.filter) !== -1) {
       activeFilter = params.filter;
     }
